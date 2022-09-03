@@ -1,0 +1,22 @@
+.search-container {
+  background-color: #f2f7f5;
+  height: 100vh;
+}
+
+.input-container {
+  display: flex;
+  margin: auto;
+  margin-top: 2%;
+  width: 50%;
+}
+
+.button-search {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 16px;
+}
+
+.button-icon {
+  margin-left: 8px;
+}

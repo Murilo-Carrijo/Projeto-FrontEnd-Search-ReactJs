@@ -4,12 +4,13 @@ import {
 } from 'reactstrap';
 import { IoIosSearch } from 'react-icons/io';
 import Header from '../../components/Header';
+import './Search.css';
 
 function Search() {
   return (
-    <div>
+    <div className="search-container">
       <Header />
-      <div className="container-input">
+      <div className="input-container">
         <InputGroup size="lg">
           <InputGroupText>
             <IoIosSearch />
@@ -24,7 +25,8 @@ function Search() {
           className="button-search"
           // onClick={() => setSearch(inputValue)}
         >
-          buscar
+          Buscar
+          <IoIosSearch className="button-icon" />
         </Button>
       </div>
     </div>
