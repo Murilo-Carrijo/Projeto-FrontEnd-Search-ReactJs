@@ -50,7 +50,9 @@ function Search() {
           <IoIosSearch className="button-icon" />
         </Button>
       </div>
-      <Card />
+      <div className="cards-container">
+        <Card />
+      </div>
     </div>
   );
 }
