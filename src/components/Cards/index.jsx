@@ -26,9 +26,83 @@ function Cards() {
   function renderPageCards() {
     if (pathname === '/search' || pathname === '/') {
       return (
-        <div>
+        <div className="container">
           { data
         && data.map((d) => (
+          <div className="card-container">
+            <Card
+            // eslint-disable-next-line no-underscore-dangle
+              key={d._id}
+              className="my-2"
+            >
+              <CardHeader className="card-header">
+                {
+                // eslint-disable-next-line no-underscore-dangle
+                  d._type
+                }
+                <button
+                  type="button"
+                  onClick={() => setLs(d)}
+                  className="favorite-button"
+                >
+                  <IoIosStar />
+                </button>
+              </CardHeader>
+              <CardBody>
+                <CardTitle tag="h5">
+                  {
+                    // eslint-disable-next-line no-underscore-dangle
+                    d._source.title
+                  }
+                </CardTitle>
+                <CardText>
+                  {
+                    // eslint-disable-next-line no-underscore-dangle
+                    d._source.description
+                  }
+                </CardText>
+                <div>
+                  <p>Texto Completo:</p>
+                  <a
+                    href={// eslint-disable-next-line no-underscore-dangle
+                      d._source.fullTextIdentifier
+                    }
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {
+                    // eslint-disable-next-line no-underscore-dangle
+                      d._source.fullTextIdentifier
+                    }
+                  </a>
+                </div>
+              </CardBody>
+              <CardFooter className="footer-card">
+                <p>Autores: </p>
+                {
+                  // eslint-disable-next-line no-underscore-dangle
+                  d._source.authors.map((a) => (
+                    <div
+                      key={a}
+                      className="footer-author"
+                    >
+                      <p>{`${a} `}</p>
+                    </div>
+                  ))
+                }
+              </CardFooter>
+            </Card>
+          </div>
+        )) }
+        </div>
+      );
+    }
+    if (pathname === '/favorites') {
+      const lsItems = JSON.parse(localStorage.getItem('favorites'));
+      return (
+        <div className="container">
+          { lsItems
+        && lsItems.map((d) => (
           <div className="card-container">
             <Card
             // eslint-disable-next-line no-underscore-dangle
