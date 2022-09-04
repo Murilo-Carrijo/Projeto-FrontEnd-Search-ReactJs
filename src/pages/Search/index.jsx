@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
   InputGroup, InputGroupText, Input, Button,
 } from 'reactstrap';
@@ -8,7 +8,26 @@ import AppContext from '../../context/appContext';
 import './Search.css';
 
 function Search() {
-  const { setInputValue } = useContext(AppContext);
+  const {
+    inputValue, setInputValue, setSearch, search, setData,
+  } = useContext(AppContext);
+
+  const fetchApi = async () => {
+    const url = `https://core.ac.uk/api-v2/search/${search}?apiKey=pblsZQN9WajuB3YzSVXyJG8HIfOMoUFt`;
+    try {
+      const response = await fetch(url);
+      const info = await response.json();
+      console.log(info.data);
+      setData(info.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchApi();
+  }, [setData, search]);
+
   return (
     <div className="search-container">
       <Header />
@@ -25,6 +44,7 @@ function Search() {
         <Button
           type="button"
           className="button-search"
+          onClick={() => setSearch(inputValue)}
         >
           Buscar
           <IoIosSearch className="button-icon" />

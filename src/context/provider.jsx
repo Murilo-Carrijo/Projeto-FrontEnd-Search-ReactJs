@@ -4,14 +4,17 @@ import AppContext from './appContext';
 
 function Provider({ children }) {
   const [inputValue, setInputValue] = useState('');
-  const [serach, setSearch] = useState('');
+  const [search, setSearch] = useState('');
+  const [data, setData] = useState([]);
 
   const contextValue = useMemo(() => ({
     inputValue,
     setInputValue,
-    serach,
+    search,
     setSearch,
-  }), [inputValue, serach]);
+    data,
+    setData,
+  }), [inputValue, search], data);
 
   return (
     <AppContext.Provider value={contextValue}>
