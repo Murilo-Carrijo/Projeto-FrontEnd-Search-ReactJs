@@ -7,7 +7,7 @@ function Favorites() {
   return (
     <div>
       <Header />
-      <div className="favorites-cards">
+      <div className="cards-container">
         <Cards />
       </div>
     </div>

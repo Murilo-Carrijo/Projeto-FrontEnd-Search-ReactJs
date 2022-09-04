@@ -1,32 +1,36 @@
 import React, { useContext, useEffect } from 'react';
+// import qs from 'qs';
 import {
   InputGroup, InputGroupText, Input, Button,
 } from 'reactstrap';
 import { IoIosSearch } from 'react-icons/io';
 import Header from '../../components/Header';
 import Card from '../../components/Cards';
+import Pagination from '../../components/Pagination';
 import AppContext from '../../context/appContext';
 import './Search.css';
 
 function Search() {
   const {
-    inputValue, setInputValue, setSearch, search, setData,
+    inputValue, setInputValue, setSearch, search, setData, setTotalHits,
   } = useContext(AppContext);
+  const { actualPage, setActualPage } = Pagination();
 
-  const fetchApi = async () => {
-    const url = `https://core.ac.uk/api-v2/search/${search}?apiKey=pblsZQN9WajuB3YzSVXyJG8HIfOMoUFt`;
+  const fetchApi = async (page) => {
+    const url = `https://core.ac.uk:443/api-v2/search/${search}?page=${page}&pageSize=10&apiKey=pblsZQN9WajuB3YzSVXyJG8HIfOMoUFt`;
     try {
       const response = await fetch(url);
       const info = await response.json();
       setData(info.data);
+      setTotalHits(info.totalHits);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    fetchApi();
-  }, [setData, search]);
+    fetchApi(actualPage);
+  }, [setData, search, actualPage]);
 
   return (
     <div className="search-container">
@@ -52,6 +56,20 @@ function Search() {
       </div>
       <div className="cards-container">
         <Card />
+      </div>
+      <div>
+        {Array(5).fill('').map((_, index) => (
+          <button
+            type="button"
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
+            onClick={() => setActualPage(index + 1)}
+            // eslint-disable-next-line react/no-unknown-property
+            desabled={index === actualPage}
+          >
+            { index + 1 }
+          </button>
+        ))}
       </div>
     </div>
   );
