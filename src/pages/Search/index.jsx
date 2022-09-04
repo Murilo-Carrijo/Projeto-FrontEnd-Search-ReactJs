@@ -4,16 +4,11 @@ import {
 } from 'reactstrap';
 import { IoIosSearch } from 'react-icons/io';
 import Header from '../../components/Header';
-import './Search.css';
 import AppContext from '../../context/appContext';
+import './Search.css';
 
 function Search() {
-  const {
-    inputValue,
-    setInputValue,
-    setSearch,
-  } = useContext(AppContext);
-
+  const { setInputValue } = useContext(AppContext);
   return (
     <div className="search-container">
       <Header />
@@ -24,13 +19,12 @@ function Search() {
           </InputGroupText>
           <Input
             placeholder="Digite sua busca"
-            onChange={(e) => setInputValue(e.target.value)}
+            onChange={({ target }) => setInputValue(target.value)}
           />
         </InputGroup>
         <Button
           type="button"
           className="button-search"
-          onClick={() => setSearch(inputValue)}
         >
           Buscar
           <IoIosSearch className="button-icon" />
