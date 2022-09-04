@@ -24,4 +24,17 @@
 .cards-container {
   background-color: #f2f7f5;
   padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.pagination-container {
+  background-color: #f2f7f5;
+  display: flex;
+  justify-content: center;
+}
+
+.button-pagination {
+  background-color: #004643;
+  margin-left: 16px;
+  margin-bottom: 48px;
 }

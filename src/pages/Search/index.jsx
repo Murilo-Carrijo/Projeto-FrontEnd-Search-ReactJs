@@ -57,18 +57,20 @@ function Search() {
       <div className="cards-container">
         <Card />
       </div>
-      <div>
-        {Array(5).fill('').map((_, index) => (
-          <button
+      <div className="pagination-container">
+        {search && Array(10).fill('').map((_, index) => (
+          <Button
+            className="button-pagination"
+            color="success"
             type="button"
             // eslint-disable-next-line react/no-array-index-key
             key={index}
             onClick={() => setActualPage(index + 1)}
             // eslint-disable-next-line react/no-unknown-property
-            desabled={index === actualPage}
+            desabled={index === actualPage + 1}
           >
             { index + 1 }
-          </button>
+          </Button>
         ))}
       </div>
     </div>
