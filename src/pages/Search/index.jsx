@@ -4,6 +4,7 @@ import {
 } from 'reactstrap';
 import { IoIosSearch } from 'react-icons/io';
 import Header from '../../components/Header';
+import Card from '../../components/Cards';
 import AppContext from '../../context/appContext';
 import './Search.css';
 
@@ -17,7 +18,6 @@ function Search() {
     try {
       const response = await fetch(url);
       const info = await response.json();
-      console.log(info.data);
       setData(info.data);
     } catch (error) {
       console.log(error);
@@ -50,6 +50,7 @@ function Search() {
           <IoIosSearch className="button-icon" />
         </Button>
       </div>
+      <Card />
     </div>
   );
 }

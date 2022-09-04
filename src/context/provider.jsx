@@ -14,7 +14,7 @@ function Provider({ children }) {
     setSearch,
     data,
     setData,
-  }), [inputValue, search], data);
+  }), [inputValue, search, data]);
 
   return (
     <AppContext.Provider value={contextValue}>
