@@ -6,9 +6,10 @@ import {
 import { IoIosStar } from 'react-icons/io';
 import AppContext from '../../context/appContext';
 
+import './Cards.css';
+
 function Cards() {
   const { data } = useContext(AppContext);
-  // console.log('cards', data);
 
   const location = useLocation();
   const { pathname } = location;
@@ -20,7 +21,6 @@ function Cards() {
     }
     checkLs.push(article);
     localStorage.setItem('favorites', JSON.stringify(checkLs));
-    // setFavorites(checkLs);
   }
 
   function renderPageCards() {
