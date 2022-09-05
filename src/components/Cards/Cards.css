@@ -1,3 +1,7 @@
+.container{
+  min-height: 100vh;
+}
+
 .my-2 {
   margin: auto;
   width: 80%;
