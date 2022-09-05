@@ -50,10 +50,12 @@ function Cards() {
         <div className="container">
           { data
         && data.map((d) => (
-          <div className="card-container">
-            <Card
+          <div
+            className="card-container"
             // eslint-disable-next-line no-underscore-dangle
-              key={d._id}
+            key={d._id}
+          >
+            <Card
               className="my-2"
             >
               <CardHeader className="card-header">
@@ -127,10 +129,12 @@ function Cards() {
         <div className="container">
           { lsItems
         && lsItems.map((d) => (
-          <div className="card-container">
-            <Card
+          <div
+            className="card-container"
             // eslint-disable-next-line no-underscore-dangle
-              key={d._id}
+            key={d._id}
+          >
+            <Card
               className="my-2"
             >
               <CardHeader className="card-header">

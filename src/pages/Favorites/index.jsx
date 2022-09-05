@@ -12,7 +12,7 @@ function Favorites() {
 
   useEffect(() => {
     setLs(JSON.parse(localStorage.getItem('favorites')));
-  }, [ls]);
+  }, [setLs]);
 
   const pages = Math.ceil(ls.length / 10);
   return (
