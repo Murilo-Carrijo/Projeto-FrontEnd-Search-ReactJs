@@ -9,7 +9,7 @@ import AppContext from '../../context/appContext';
 import './Cards.css';
 
 function Cards() {
-  const { data } = useContext(AppContext);
+  const { data, setUpdateLs } = useContext(AppContext);
 
   const location = useLocation();
   const { pathname } = location;
@@ -18,7 +18,7 @@ function Cards() {
     const checkLs = JSON.parse(localStorage.getItem('favorites'));
     // eslint-disable-next-line no-underscore-dangle
     const idsLs = checkLs?.map((items) => items._id);
-    // eslint-disable-next-line no-underscore-dangle
+    setUpdateLs((previous) => !previous);
     if (!checkLs || checkLs === []) {
       return localStorage.setItem('favorites', JSON.stringify([article]));
     }

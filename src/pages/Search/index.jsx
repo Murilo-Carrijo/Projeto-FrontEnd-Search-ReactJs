@@ -11,7 +11,7 @@ import './Search.css';
 
 function Search() {
   const {
-    inputValue, setInputValue, setSearch, search, setData, setTotalHits,
+    inputValue, setInputValue, setSearch, search, setData, setTotalHits, updateLs,
   } = useContext(AppContext);
   const { actualPage, setActualPage } = Pagination();
 
@@ -29,7 +29,7 @@ function Search() {
 
   useEffect(() => {
     fetchApi(actualPage);
-  }, [setData, search, actualPage]);
+  }, [setData, search, actualPage, updateLs]);
 
   return (
     <div className="search-container">
