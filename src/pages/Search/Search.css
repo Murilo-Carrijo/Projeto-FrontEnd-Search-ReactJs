@@ -13,8 +13,8 @@
 .button-search {
   align-items: center;
   display: flex;
-  justify-content: space-around;
   margin-left: 16px;
+  width: 7rem;
 }
 
 .button-icon {

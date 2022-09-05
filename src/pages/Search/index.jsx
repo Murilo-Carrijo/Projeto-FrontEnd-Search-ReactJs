@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from 'react';
-// import qs from 'qs';
 import {
   InputGroup, InputGroupText, Input, Button,
 } from 'reactstrap';

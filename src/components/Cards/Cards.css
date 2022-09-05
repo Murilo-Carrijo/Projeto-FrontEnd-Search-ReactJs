@@ -9,6 +9,8 @@
 }
 
 .card-header-start {
+  background-color: #004643;
+  border-radius: 100%;
   color: yellow;
 }
 
