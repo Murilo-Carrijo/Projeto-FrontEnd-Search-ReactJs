@@ -1,11 +1,12 @@
 function getItemsLs(actualPage, setLs) {
+  const size = 10;
   const itemsLs = JSON.parse(localStorage.getItem('favorites'));
   if (actualPage === 1) {
-    const articles = itemsLs.filter((_, i) => i <= 9);
+    const articles = itemsLs.filter((_, i) => i <= (size - 1));
     return setLs(articles);
   }
-  const min = (actualPage - 1) * 10;
-  const max = min + 9;
+  const min = (actualPage - 1) * size;
+  const max = min + (size - 1);
   const articles = itemsLs.filter((_, i) => i >= min && i <= max);
   return setLs(articles);
 }
