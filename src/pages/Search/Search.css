@@ -44,6 +44,12 @@
   width: 48px;
 }
 
+.initial-button-pagination {
+  display: flex;
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
 .button-pagination--active {
   background-color: none;
   border: none;
