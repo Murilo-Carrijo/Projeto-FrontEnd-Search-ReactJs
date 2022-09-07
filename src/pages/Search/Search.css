@@ -35,6 +35,23 @@
 
 .button-pagination {
   background-color: #004643;
+  border: none;
+  border-radius: 8px;
+  color: #f2f7f5;
+  height: 48px;
   margin-left: 16px;
   margin-bottom: 48px;
+  width: 48px;
+}
+
+.button-pagination--active {
+  background-color: none;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 1px 1px 2px #004643;
+  color: #004643;
+  height: 48px;
+  margin-left: 16px;
+  margin-bottom: 48px;
+  width: 48px;
 }

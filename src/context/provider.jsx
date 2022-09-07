@@ -9,6 +9,7 @@ function Provider({ children }) {
   const [offset, setOffset] = useState(0);
   const [updateLs, setUpdateLs] = useState(false);
   const [ls, setLs] = useState([]);
+  const [totalHits, setTotalHits] = useState(0);
 
   const contextValue = useMemo(() => ({
     inputValue,
@@ -23,7 +24,9 @@ function Provider({ children }) {
     setUpdateLs,
     ls,
     setLs,
-  }), [inputValue, search, data, offset, updateLs, ls]);
+    totalHits,
+    setTotalHits,
+  }), [inputValue, search, data, offset, updateLs, ls, totalHits]);
 
   return (
     <AppContext.Provider value={contextValue}>

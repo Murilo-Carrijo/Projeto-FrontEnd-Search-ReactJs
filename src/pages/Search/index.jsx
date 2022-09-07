@@ -10,14 +10,18 @@ import fetchApi from '../../utils/fetchApi';
 import AppContext from '../../context/appContext';
 import './Search.css';
 
+// const MAX_ITEMS = 9;
+// const MAX_LEFT = (MAX_ITEMS - 1) / 2;
+
 function Search() {
   const {
-    inputValue, setInputValue, setSearch, search, setData, updateLs,
+    inputValue, setInputValue, setSearch, search, setData, updateLs, setTotalHits,
   } = useContext(AppContext);
-  const { actualPage, setActualPage } = Pagination();
+  const { actualPage, renderPagination } = Pagination();
+  // const firstItem = Math.max(actualPage - MAX_LEFT, 1);
 
   useEffect(() => {
-    fetchApi(actualPage, search, setData);
+    fetchApi(actualPage, search, setData, setTotalHits);
   }, [setData, search, actualPage, updateLs]);
 
   return (
@@ -48,22 +52,21 @@ function Search() {
       <div className="cards-container">
         <Card />
       </div>
-      <div className="pagination-container">
-        {search && Array(10).fill('').map((_, index) => (
-          <Button
-            className="button-pagination"
-            color="success"
-            type="button"
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
-            onClick={() => setActualPage(index + 1)}
-            // eslint-disable-next-line react/no-unknown-property
-            desabled={index === actualPage + 1}
-          >
-            { index + 1 }
-          </Button>
-        ))}
-      </div>
+      {/* <div className="pagination-container">
+        {search && Array.from({ length: Math.min(MAX_ITEMS, (totalHits / 10)) }).fill('')
+          .map((_, index) => index + firstItem)
+          .map((page) => (
+            <button
+              type="button"
+              key={page}
+              onClick={() => setActualPage(page)}
+              className={page === actualPage ? 'button-pagination--active' : 'button-pagination'}
+            >
+              { page }
+            </button>
+          ))}
+      </div> */}
+      { renderPagination() }
     </div>
   );
 }
