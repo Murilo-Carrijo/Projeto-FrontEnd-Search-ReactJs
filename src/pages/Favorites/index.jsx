@@ -3,29 +3,18 @@ import { Button } from 'reactstrap';
 import Header from '../../components/Header';
 import Cards from '../../components/Cards';
 import Pagination from '../../components/Pagination';
+import getItemsLs from '../../utils/getItemsLs';
+import AppContext from '../../context/appContext';
 import './Favorites.css';
 import '../Search/Search.css';
-import AppContext from '../../context/appContext';
 
 function Favorites() {
   const { setLs, updateLs } = useContext(AppContext);
   const { actualPage, setActualPage } = Pagination();
   const pages = Math.ceil(JSON.parse(localStorage.getItem('favorites')).length / 10);
 
-  function getItemsLs() {
-    const itemsLs = JSON.parse(localStorage.getItem('favorites'));
-    if (actualPage === 1) {
-      const articles = itemsLs.filter((_, i) => i <= 9);
-      return setLs(articles);
-    }
-    const min = (actualPage - 1) * 10;
-    const max = min + 9;
-    const articles = itemsLs.filter((_, i) => i >= min && i <= max);
-    return setLs(articles);
-  }
-
   useEffect(() => {
-    getItemsLs();
+    getItemsLs(actualPage, setLs);
   }, [actualPage, updateLs]);
 
   return (
