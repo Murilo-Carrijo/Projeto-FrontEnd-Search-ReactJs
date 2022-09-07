@@ -55,3 +55,14 @@
   margin-bottom: 48px;
   width: 48px;
 }
+
+.return-button-pagination {
+  background-color: #004643;
+  border: none;
+  border-radius: 8px;
+  color: #f2f7f5;
+  height: 48px;
+  margin-left: 16px;
+  margin-bottom: 48px;
+  width: 80px;
+}

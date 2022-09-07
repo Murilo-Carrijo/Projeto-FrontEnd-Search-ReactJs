@@ -31,9 +31,21 @@ function Pagination() {
   function renderPagination() {
     if (pathname === '/search' || pathname === '/') {
       return (
+        search
+        && (
         <div className="pagination-container">
-          {search && Array.from({ length: Math.min(MAX_ITEMS, (totalHits / 10)) }).fill('')
-            .map((_, index) => index + firstItem)
+          { actualPage !== 1
+            && (
+            <button
+              type="button"
+              onClick={() => setActualPage(actualPage - 1)}
+              className="return-button-pagination"
+            >
+              Anterior
+            </button>
+            )}
+          {Array.from({ length: Math.min(MAX_ITEMS, Math.ceil(totalHits)) }).fill('')
+            .map((_, index) => index + firstItem <= totalHits && index + firstItem)
             .map((page) => (
               <button
                 type="button"
@@ -44,7 +56,18 @@ function Pagination() {
                 { page }
               </button>
             ))}
+            { actualPage !== totalHits
+            && (
+            <button
+              type="button"
+              onClick={() => setActualPage(actualPage + 1)}
+              className="return-button-pagination"
+            >
+              Próximo
+            </button>
+            )}
         </div>
+        )
       );
     }
     if (pathname === '/favorites') {
