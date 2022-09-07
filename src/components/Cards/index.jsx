@@ -4,6 +4,7 @@ import {
   Card, CardHeader, CardBody, CardTitle, CardText, CardFooter,
 } from 'reactstrap';
 import { IoIosStar } from 'react-icons/io';
+import managingLs from '../../utils/managingLs';
 import AppContext from '../../context/appContext';
 
 import './Cards.css';
@@ -14,23 +15,23 @@ function Cards() {
   const location = useLocation();
   const { pathname } = location;
 
-  function setLs(article) {
-    const checkLs = JSON.parse(localStorage.getItem('favorites'));
-    // eslint-disable-next-line no-underscore-dangle
-    const idsLs = checkLs?.map((items) => items._id);
-    setUpdateLs((previous) => !previous);
-    if (!checkLs || checkLs === []) {
-      return localStorage.setItem('favorites', JSON.stringify([article]));
-    }
-    // eslint-disable-next-line no-underscore-dangle
-    if (idsLs?.includes(article._id)) {
-      // eslint-disable-next-line no-underscore-dangle
-      const newCheckLs = checkLs.filter((item) => item._id !== article._id);
-      return localStorage.setItem('favorites', JSON.stringify(newCheckLs));
-    }
-    checkLs.push(article);
-    return localStorage.setItem('favorites', JSON.stringify(checkLs));
-  }
+  // function managingLs(article) {
+  //   const checkLs = JSON.parse(localStorage.getItem('favorites'));
+  //   // eslint-disable-next-line no-underscore-dangle
+  //   const idsLs = checkLs?.map((items) => items._id);
+  //   setUpdateLs((previous) => !previous);
+  //   if (!checkLs || checkLs === []) {
+  //     return localStorage.setItem('favorites', JSON.stringify([article]));
+  //   }
+  //   // eslint-disable-next-line no-underscore-dangle
+  //   if (idsLs?.includes(article._id)) {
+  //     // eslint-disable-next-line no-underscore-dangle
+  //     const newCheckLs = checkLs.filter((item) => item._id !== article._id);
+  //     return localStorage.setItem('favorites', JSON.stringify(newCheckLs));
+  //   }
+  //   checkLs.push(article);
+  //   return localStorage.setItem('favorites', JSON.stringify(checkLs));
+  // }
 
   function renderFavoriteStar(id) {
     const checkLs = JSON.parse(localStorage.getItem('favorites'));
@@ -65,7 +66,7 @@ function Cards() {
                 }
                 <button
                   type="button"
-                  onClick={() => setLs(d)}
+                  onClick={() => managingLs(d, setUpdateLs)}
                   className="favorite-button"
                 >
                   {
@@ -143,7 +144,7 @@ function Cards() {
                 }
                 <button
                   type="button"
-                  onClick={() => setLs(d)}
+                  onClick={() => managingLs(d, setUpdateLs)}
                   className="favorite-button"
                 >
                   <IoIosStar className="card-header-start" />
