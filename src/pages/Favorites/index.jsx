@@ -10,6 +10,7 @@ import AppContext from '../../context/appContext';
 function Favorites() {
   const { setLs, updateLs } = useContext(AppContext);
   const { actualPage, setActualPage } = Pagination();
+  const pages = Math.ceil(JSON.parse(localStorage.getItem('favorites')).length / 10);
 
   function getItemsLs() {
     const itemsLs = JSON.parse(localStorage.getItem('favorites'));
@@ -27,7 +28,6 @@ function Favorites() {
     getItemsLs();
   }, [actualPage, updateLs]);
 
-  const pages = Math.ceil(JSON.parse(localStorage.getItem('favorites')).length / 10);
   return (
     <div>
       <Header />

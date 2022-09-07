@@ -6,36 +6,28 @@ import { IoIosSearch } from 'react-icons/io';
 import Header from '../../components/Header';
 import Card from '../../components/Cards';
 import Pagination from '../../components/Pagination';
+import fetchApi from '../../utils/fetchApi';
 import AppContext from '../../context/appContext';
 import './Search.css';
 
 function Search() {
   const {
-    inputValue, setInputValue, setSearch, search, setData, setTotalHits, updateLs,
+    inputValue, setInputValue, setSearch, search, setData, updateLs,
   } = useContext(AppContext);
   const { actualPage, setActualPage } = Pagination();
 
-  const fetchApi = async (page) => {
-    const url = `https://core.ac.uk:443/api-v2/search/${search}?page=${page}&pageSize=10&apiKey=pblsZQN9WajuB3YzSVXyJG8HIfOMoUFt`;
-    try {
-      const response = await fetch(url);
-      const info = await response.json();
-      setData(info.data);
-      setTotalHits(info.totalHits);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    fetchApi(actualPage);
+    fetchApi(actualPage, search, setData);
   }, [setData, search, actualPage, updateLs]);
 
   return (
     <div className="search-container">
       <Header />
       <div className="input-container">
-        <InputGroup size="lg">
+        <InputGroup
+          className="input-test"
+          size="lg"
+        >
           <InputGroupText>
             <IoIosSearch />
           </InputGroupText>

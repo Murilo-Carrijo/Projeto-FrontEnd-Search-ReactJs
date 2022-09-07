@@ -6,7 +6,6 @@ function Provider({ children }) {
   const [inputValue, setInputValue] = useState('');
   const [search, setSearch] = useState('');
   const [data, setData] = useState([]);
-  const [totalHits, setTotalHits] = useState(0);
   const [offset, setOffset] = useState(0);
   const [updateLs, setUpdateLs] = useState(false);
   const [ls, setLs] = useState([]);
@@ -18,15 +17,13 @@ function Provider({ children }) {
     setSearch,
     data,
     setData,
-    totalHits,
-    setTotalHits,
     offset,
     setOffset,
     updateLs,
     setUpdateLs,
     ls,
     setLs,
-  }), [inputValue, search, data, totalHits, offset, updateLs, ls]);
+  }), [inputValue, search, data, offset, updateLs, ls]);
 
   return (
     <AppContext.Provider value={contextValue}>
