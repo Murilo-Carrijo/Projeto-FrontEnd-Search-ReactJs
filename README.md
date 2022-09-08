@@ -40,7 +40,7 @@ Para realizar esse projeto foi nessário:
 ## Estrutura da pasta src
 
 ```
- .
+
   ├── src
       ├── components (componentes renderizados nas paginas)
       ├── context (gerencia os estados globais da aplicação)
