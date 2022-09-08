@@ -1,5 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+import {
+  AiFillFastBackward, AiFillBackward, AiFillFastForward, AiFillForward,
+} from 'react-icons/ai';
 import qs from 'query-string';
 import AppContext from '../../context/appContext';
 
@@ -42,14 +45,14 @@ function Pagination() {
                 onClick={() => setActualPage(1)}
                 className="return-button-pagination"
               >
-                Primeira Pagina
+                <AiFillFastBackward />
               </button>
               <button
                 type="button"
                 onClick={() => setActualPage(actualPage - 1)}
                 className="return-button-pagination"
               >
-                Anterior
+                <AiFillBackward />
               </button>
             </div>
             )}
@@ -76,14 +79,14 @@ function Pagination() {
                 onClick={() => setActualPage(actualPage + 1)}
                 className="return-button-pagination"
               >
-                Próximo
+                <AiFillForward />
               </button>
               <button
                 type="button"
                 onClick={() => setActualPage(totalHits)}
                 className="return-button-pagination"
               >
-                Última Pagina
+                <AiFillFastForward />
               </button>
             </div>
             )}
@@ -102,14 +105,14 @@ function Pagination() {
                 onClick={() => setActualPage(1)}
                 className="return-button-pagination"
               >
-                Primeira Pagina
+                <AiFillFastBackward />
               </button>
               <button
                 type="button"
                 onClick={() => setActualPage(actualPage - 1)}
                 className="return-button-pagination"
               >
-                Anterior
+                <AiFillBackward />
               </button>
             </div>
             )}
@@ -133,14 +136,14 @@ function Pagination() {
                 onClick={() => setActualPage(actualPage + 1)}
                 className="return-button-pagination"
               >
-                Próximo
+                <AiFillForward />
               </button>
               <button
                 type="button"
                 onClick={() => setActualPage(pagesLs)}
                 className="return-button-pagination"
               >
-                Ultima Pagina
+                <AiFillFastForward />
               </button>
             </div>
             )}
