@@ -18,7 +18,7 @@ function Search() {
 
   useEffect(() => {
     fetchApi(actualPage, search, setData, setTotalHits);
-  }, [setData, search, actualPage, updateLs]);
+  }, [search, actualPage, updateLs]);
 
   return (
     <div className="search-container">
