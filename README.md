@@ -38,6 +38,8 @@ Para realizar esse projeto foi nessário:
 - Obs: garanta que o projeto esteja rodando na porta 3000.
 
 ## Estrutura da pasta src
+
+```
  .
   ├── src
       ├── components (componentes renderizados nas paginas)
@@ -45,4 +47,4 @@ Para realizar esse projeto foi nessário:
       ├── pages (paginas da aplicação)
       ├── routes (rotas das paginas da aplicação)
       └── utils (funções que são o poderão ser reaproveitadas no projeto conforme ele evolua)
-
+```
