@@ -44,7 +44,7 @@ Para realizar esse projeto foi necessário:
    ├── components (componentes renderizados nas paginas)
    ├── context (gerencia os estados globais da aplicação)
    ├── pages (paginas da aplicação)
-  ├── routes (rotas das paginas da aplicação)
+   ├── routes (rotas das paginas da aplicação)
    └── utils (funções que são o poderão ser reaproveitadas no projeto conforme ele evolua)
 ```
 
