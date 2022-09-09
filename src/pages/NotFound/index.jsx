@@ -1,8 +1,15 @@
 import React from 'react';
+import './NotFound.css';
+
+import { VscError } from 'react-icons/vsc';
 
 function NotFound() {
   return (
-    <h1>Pagina não encontrada</h1>
+    <h1>
+      <VscError />
+      {' '}
+      Pagina não encontrada
+    </h1>
   );
 }
 
