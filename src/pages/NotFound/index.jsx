@@ -5,7 +5,7 @@ import { VscError } from 'react-icons/vsc';
 
 function NotFound() {
   return (
-    <h1>
+    <h1 className="notfound">
       <VscError />
       {' '}
       Pagina não encontrada
